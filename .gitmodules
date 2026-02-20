@@ -1,0 +1,8 @@
+[submodule "frontend"]
+	path = frontend
+	url = https://github.com/Nojorono/web-rock.git
+	branch = dev-aji
+[submodule "backend"]
+	path = backend
+	url = https://github.com/Nojorono/content-rock.git
+	branch = dev-aji
