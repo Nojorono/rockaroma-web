@@ -1,36 +1,36 @@
-# content-rock + rockaroma (Laravel 8)
-# Pakai .env dari masing-masing folder (content-rock/.env, rockaroma/.env)
+# backend + frontend
+# Pakai .env dari masing-masing folder (backend/.env, frontend/.env)
 # DB_HOST di-override agar dari container bisa akses MySQL di host
 # Jalankan: docker-compose up -d
-# content-rock: http://localhost:8080
-# rockaroma:    http://localhost:8081
+# backend: http://localhost:8080
+# frontend:    http://localhost:8081
 
 services:
-  content-rock:
+  backend:
     build:
-      context: ./content-rock
+      context: ./backend
       dockerfile: Dockerfile
-    container_name: content-rock
+    container_name: backend
     ports:
       - "8080:80"
     env_file:
-      - ./content-rock/.env
+      - ./backend/.env
     environment:
       # Agar container bisa konek ke MySQL di host (Windows/Mac)
       DB_HOST: host.docker.internal
     volumes:
-      - ./content-rock/storage:/var/www/html/storage
+      - ./backend/storage:/var/www/html/storage
 
-  rockaroma:
+  frontend:
     build:
-      context: ./rockaroma
+      context: ./frontend
       dockerfile: Dockerfile
-    container_name: rockaroma
+    container_name: frontend
     ports:
       - "8081:80"
     env_file:
-      - ./rockaroma/.env
+      - ./frontend/.env
     environment:
       DB_HOST: host.docker.internal
     volumes:
-      - ./rockaroma/storage:/var/www/html/storage
+      - ./frontend/storage:/var/www/html/storage
