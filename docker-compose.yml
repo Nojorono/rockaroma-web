@@ -20,6 +20,8 @@ services:
       DB_HOST: host.docker.internal
     volumes:
       - ./backend/storage:/var/www/html/storage
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
 
   frontend:
     build:
@@ -34,3 +36,5 @@ services:
       DB_HOST: host.docker.internal
     volumes:
       - ./frontend/storage:/var/www/html/storage
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
