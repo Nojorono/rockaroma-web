@@ -27,7 +27,7 @@ services:
       dockerfile: Dockerfile
     container_name: frontend
     ports:
-      - "8081:80"
+      - "8079:80"
     env_file:
       - ./frontend/.env
     environment:
